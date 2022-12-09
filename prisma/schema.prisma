@@ -15,12 +15,13 @@ model raw_data_wallpapers {
   url           String
   tags          Json?
   url_image     String?
+  is_get_details  Boolean @default(false)
   created_at    DateTime @default(now())
 }
 
 model bot_memory_caching {
   id            Int     @id @default(autoincrement())
-  name          String
+  name          String  @unique
   data          Json
   created_at    DateTime @default(now())
 }

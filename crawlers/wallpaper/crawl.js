@@ -1,8 +1,3 @@
-import axios from "axios";
+import hot from "./wallhaven/hot.js";
 
-
-axios.interceptors.request.use((config) => {
-	return config;
-}, (err) => {
-	return Promise.reject(err);
-});
+hot.crawl();

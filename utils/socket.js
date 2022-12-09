@@ -7,13 +7,20 @@ const listenerWorker = (callback) => {
 	ws.on("message", callback);
 };
 
-
+const waitWorker = new Promise((solver) => {
+	ws.on("open", function open() {
+		solver();
+	});
+});
 
 const sendToWorker = (json) => {
-	ws.send(JSON.stringify(json));
+	waitWorker.then(() => {
+		ws.send(JSON.stringify(json));
+	});
 };
 
 export {
 	sendToWorker,
 	listenerWorker,
+	ws,
 };
