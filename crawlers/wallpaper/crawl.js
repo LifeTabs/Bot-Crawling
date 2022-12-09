@@ -1,3 +1,8 @@
 import hot from "./wallhaven/hot.js";
+import top from "./wallhaven/top.js";
 
-hot.crawl();
+const crawl = async () => {
+	await hot.crawl();
+	await top.crawl();
+};
+crawl();

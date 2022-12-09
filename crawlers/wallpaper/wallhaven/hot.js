@@ -16,6 +16,8 @@ axios.interceptors.request.use((config) => {
 });
 
 export default {
+	botName: "wallhaven-hot",
+	URL_ENDPOINT: "https://wallhaven.cc/hot",
 	async getCaching(name) {
 		return await prisma.bot_memory_caching.upsert({
 			where: {
@@ -38,7 +40,7 @@ export default {
 		});
 	},
 	async crawl() {
-		const botMem = await this.getCaching("wallhaven-hot");
+		const botMem = await this.getCaching(this.botName);
 		const arrCount = Array.from({length: 500}, (_, i) => i + 1);
 		for (const i of arrCount) {
 			console.log(`Page: ${i}`);
@@ -47,7 +49,7 @@ export default {
 			}
 			prisma.bot_memory_caching.update({
 				where: {
-					name: "wallhaven-hot",
+					name: this.botName,
 				},
 				data: {
 					data: {
@@ -58,7 +60,7 @@ export default {
 			const page = i;
 			const data = await new Promise((solver) => {
 				setTimeout(async () => {
-					const { data } = await axios.get("https://wallhaven.cc/hot", {
+					const { data } = await axios.get(this.URL_ENDPOINT, {
 						params: {
 							page,
 						},
