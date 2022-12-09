@@ -17,3 +17,10 @@ model raw_data_wallpapers {
   url_image     String?
   created_at    DateTime @default(now())
 }
+
+model bot_memory_caching {
+  id            Int     @id @default(autoincrement())
+  name          String
+  data          Json
+  created_at    DateTime @default(now())
+}
