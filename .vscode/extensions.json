@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "xabikos.javascriptsnippets",
+    "esbenp.prettier-vscode",
+    "gruntfuggly.todo-tree",
+  ]
+}
