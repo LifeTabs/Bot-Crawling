@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "crawl": "npm run /crawlers/wallpaper/crawl.js",
     "lint": "eslint . --ext .js,.mjs --fix --ignore-path .gitignore",
     "postinstall": "husky install"
   },
