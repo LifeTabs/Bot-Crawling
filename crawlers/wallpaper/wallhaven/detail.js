@@ -33,10 +33,10 @@ export default {
 				setTimeout(async () => {
 					const { data, status } = await axios.get(wallpaper.url, {
 						validateStatus: (status) => {
-							return status >= 200 && status < 300 || status === 404;
+							return status >= 200 && status < 300 || status === 404 || status === 403;
 						} 
 					});
-					if(status === 404) {
+					if(status === 404 || status === 403) {
 						solver();
 						return;
 					}
