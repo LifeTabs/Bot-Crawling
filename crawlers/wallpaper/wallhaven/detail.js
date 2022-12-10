@@ -86,7 +86,7 @@ export default {
 					});
 					console.log(res);
 					solver();
-				},1000);
+				},3000);
 			});
 		}
 	}
