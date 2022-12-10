@@ -28,6 +28,7 @@ export default {
 			}
 		});
 		for (const wallpaper of listDetail) {
+			console.log(wallpaper.url);
 			await new Promise((solver) => {
 				setTimeout(async () => {
 					const { data, status } = await axios.get(wallpaper.url, {
@@ -63,7 +64,7 @@ export default {
 							views = parseInt(dt.nextElementSibling.textContent.replace(",",""));
 						}
 						else if(dt.textContent == "Favorites") {
-							likes = parseInt(dt.nextElementSibling.querySelector("a").textContent.replace(",",""));
+							likes = parseInt(dt.nextElementSibling.textContent.replace(",",""));
 						}
 					});
 					sendToWorker({
